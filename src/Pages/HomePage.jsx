@@ -12,7 +12,25 @@ import ViewThree from "../assets/view3.jpeg"
 import ViewFour from "../assets/view4.jpeg"
 import ViewFive from "../assets/view5.jpeg"
 import ViewSix from "../assets/view6.jpeg"
+import ViewSeven from "../assets/view7.jpeg"
+import ViewEight from "../assets/view8.jpeg"
+import ViewNine from "../assets/view9.jpeg"
+import ViewTen from "../assets/view10.jpg"
+import ContactForm from '../Components/ContactForm';
+import Footer from '../Components/Footer';
 const HomePage = () => {
+  const near=[
+      {
+        img:ViewSeven,
+        title:"Naini Lake",
+        description:"Endless lake surrounded by green moutains Cool breeze and birdsong Colorful boats and clear water Golden fish swimming below A peaceful dream spot"
+      },
+         {
+        img:ViewEight,
+        title:"Naina Devi Temple",
+        description:"Colorful flags fluttering in the breezeFragrance of incense in the fresh mountain airGlimpse of the Naina Devi idol inside the shrineCalm aura and peaceful chants all aroundA divine spot for blessings and serenity"
+      }
+  ]
     const navigate = useNavigate()
   const aboutUs = [
     {
@@ -54,6 +72,9 @@ const HomePage = () => {
     }
     const handleGallery=()=>{
             navigate('/gallery')
+    }
+    const handleAttraction =()=>{
+      navigate("/attractions")
     }
   return (
     <>
@@ -127,11 +148,42 @@ const HomePage = () => {
         className='w-full h-64 object-cover rounded-xl shadow-md hover:scale-105 transition-transform duration-300 cursor-pointer'
         />
     ))}
-    <button onClick={()=>handleGallery()} className='h-10 w-40 border-2 border-black bg-black text-white cursor-pointer rounded-xl hover:bg-white transition hover:text-black transition'>View</button>
+    <button onClick={()=>handleGallery()} className='h-10 w-40 border-2 border-black bg-black text-white cursor-pointer rounded-xl hover:bg-white transition hover:text-black transition'>View More</button>
   </div>
 </section>
+<section className='min-h-screen w-full p-8 bg-white'>
+  <h2 className='text-5xl font-bold text-center mb-12 font-serif'>Nearby Attractions</h2>
+  <div className='flex flex-col gap-16'>
+    {near.map((item, index) => (
+      <div key={index} className='flex flex-col md:flex-row items-center justify-between gap-8'>
+        {/* Left: Title and Description */}
+        <div className='md:w-1/2 space-y-4'>
+          <h3 className='text-3xl font-bold font-serif'>{item.title}</h3>
+          <p className='text-gray-700 text-lg w-96 leading-relaxed font-sans'>{item.description}</p>
+  <div className='h-20 w-72 flex justify-between gap-4'>
+    <button className='h-10 w-96 border-2  rounded-xl bg-black cursor-pointer text-white'>Contact</button>
+   <button onClick={()=>handleAttraction()} className='h-10 w-96 border-2  rounded-xl bg-gray-800 cursor-pointer text-black'>View More</button>
+  </div>
+        </div>
 
-
+        {/* Right: Image */}
+        <div className='md:w-1/2'>
+          <img
+            src={item.img}
+            alt={item.title}
+            className='w-full h-52 object-cover rounded-xl shadow-md'
+          />
+        </div>
+      </div>
+    ))}
+    <button onClick={()=>handleAttraction()} className='h-10 w-40 border-2 rounded-xl cursor-pointer bg-black text-white'>View More</button>
+  </div>
+</section>
+    {/* <ContactForm/> */}
+    {/* <section className='h-screen w-full border-2 p-8'>
+      <form action="" className='h-[40vh] w-[50%] border-2'></form>
+    </section> */}
+    <Footer/>
     </>
   );
 };

@@ -503,6 +503,27 @@
   .px-40 {
     padding-inline: calc(var(--spacing) * 40);
   }
+  .px-\[30\%\] {
+    padding-inline: 30%;
+  }
+  .px-\[35\%\] {
+    padding-inline: 35%;
+  }
+  .px-\[36\%\] {
+    padding-inline: 36%;
+  }
+  .px-\[37\%\] {
+    padding-inline: 37%;
+  }
+  .px-\[38\%\] {
+    padding-inline: 38%;
+  }
+  .px-\[39\%\] {
+    padding-inline: 39%;
+  }
+  .px-\[40\%\] {
+    padding-inline: 40%;
+  }
   .py-0 {
     padding-block: calc(var(--spacing) * 0);
   }
@@ -713,6 +734,11 @@
   .md\:flex-row {
     @media (width >= 48rem) {
       flex-direction: row;
+    }
+  }
+  .lg\:grid-cols-4 {
+    @media (width >= 64rem) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
   }
 }
