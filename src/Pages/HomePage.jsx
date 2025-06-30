@@ -40,7 +40,7 @@ const HomePage = () => {
     {
       img: BannerTwo,
       description:
-        "At The Mannu Maharani Regency, your perfect retreat in the enchanting hills of Nainital. Nestled in the heart of this picturesque town, our hotel offers breathtaking views of the snow-capped Himalayas and the pristine Naini Lake – a haven for those seeking peace, comfort, and a touch of luxury."
+        "At The Mannu Maharani Regency, your perfect retreat in the enchanting hills of Nainital. Nestled in the heart of this picturesque town, our hotel offers breathtaking views of the snow-capped Himalayas and the pristine Naini Lake – a haven for those seeking peace, comfort, and a touch of luxury.At The Mannu Maharani Regency, your perfect retreat in the enchanting hills of Nainital. Nestled in the heart of this picturesque town, our hotel offers breathtaking views of the snow-capped Himalayas and the pristine Naini Lake – a haven for those seeking peace, comfort, and a touch of luxury."
     }
   ];
 
@@ -76,7 +76,7 @@ const HomePage = () => {
   const handleAttraction = () => navigate('/attractions');
 
   return (
-    <>
+    <div className='overflow-x-hidden'>
       <Navbar />
 
       {/* Banner Section */}
@@ -85,25 +85,39 @@ const HomePage = () => {
       </section>
 
       {/* About Us Section */}
-      <section className='w-full px-4 py-10 sm:py-14 bg-gray-100'>
-        <h2 className='text-4xl sm:text-5xl font-bold text-center mb-10 font-sans'>About Us</h2>
-        <div className='flex flex-col md:flex-row items-center gap-10 max-w-6xl mx-auto'>
-          <img src={aboutUs[0].img} alt="About Us" className='w-full md:w-1/2 rounded-3xl shadow-lg hover:scale-95 transition duration-300 cursor-pointer' />
-          <div className='md:w-1/2 flex flex-col gap-6'>
-            <p className='text-lg text-gray-700 leading-relaxed font-semibold'>{aboutUs[0].description}</p>
-            <button onClick={handleNavigate} className='w-48 h-12 bg-black text-white rounded-xl border-2 border-black hover:bg-white hover:text-black transition'>
-              Learn More
-            </button>
-          </div>
-        </div>
-      </section>
+    {/* About Us Section */}
+<section className='w-full px-4 sm:px-10 py-16 bg-gray-100'>
+  {/* <h2 className='text-4xl sm:text-5xl font-bold text-center mb-12 font-sans text-black'>
+    About Us
+  </h2> */}
+  <div className='flex flex-col md:flex-row items-center gap-10 max-w-6xl mx-auto'>
+    <img
+      src={aboutUs[0].img}
+      alt="About Us"
+      className='w-full md:w-1/2 rounded-3xl shadow-lg hover:scale-95 transition duration-300 cursor-pointer'
+    />
+    <div className='md:w-1/2 flex flex-col gap-6'>
+      <p className='text-lg text-gray-700 leading-relaxed font-medium'>
+        {aboutUs[0].description}
+      </p>
+      <button
+        onClick={handleNavigate}
+        className='w-48 h-12 bg-black text-white rounded-xl border-2 border-black hover:bg-white hover:text-black transition'
+      >
+        Learn More
+      </button>
+    </div>
+  </div>
+</section>
 
-      {/* Accommodations */}
-      <section className='w-full px-4 py-12 bg-white'>
-        <h2 className='text-4xl sm:text-5xl font-bold text-center mb-12 font-serif'>Accommodations</h2>
+
+      {/* Accommodations Section */}
+      <section className='w-full px-20   bg-white'>
+        <h2 className='text-3xl sm:text-4xl font-bold text-center  mb-10 font-serif '>Accommodations</h2>
         <div className='flex flex-col gap-16 max-w-6xl mx-auto'>
           {accommodations.map((item, index) => (
-            <div key={index} className='flex flex-col md:flex-row items-center gap-8'>
+            <div key={index} className='flex flex-col md:flex-row justify-between items-start gap-8 mb-4'>
+              {/* Left: Text */}
               <div className='md:w-1/2 space-y-4'>
                 <h3 className='text-2xl sm:text-3xl font-bold font-serif'>{item.title}</h3>
                 <p className='text-gray-700 text-lg'>{item.description}</p>
@@ -112,38 +126,45 @@ const HomePage = () => {
                     <li key={i}>{point.trim()}</li>
                   ))}
                 </ul>
-                <p className='text-lg'>Start from <span className='font-bold'>Rs. {item.price} per night</span></p>
-                <button onClick={handleBook} className='mt-2 px-6 py-2 bg-black text-white rounded-md hover:bg-white hover:text-black border-2 border-black transition'>
+                <p className='text-lg'>
+                  Start form <span className='font-bold'>Rs. {item.price} per night</span>
+                </p>
+                <button
+                  onClick={handleBook}
+                  className='mt-2 px-6 py-2 bg-black text-white rounded-md hover:bg-white hover:text-black border-2 border-black transition'
+                >
                   Book Now
                 </button>
               </div>
+
+              {/* Right: Image */}
               <div className='md:w-1/2'>
-                <img src={item.img} alt={item.title} className='w-full h-auto rounded-xl shadow-md' />
+                <img src={item.img} alt={item.title} className='w-full h-80 object-cover rounded-xl shadow-md' />
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Gallery */}
-      <section className='w-full px-4 py-12 bg-gray-100'>
-        <h2 className='text-4xl sm:text-5xl font-bold text-center mb-12 font-serif'>Gallery</h2>
-        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-8'>
+      {/* Gallery Section */}
+      <section className='w-full px-4 py-20 bg-gray-100 relative top-20'>
+        <h2 className='text-4xl sm:text-5xl font-bold text-center mb-10 font-serif p-8'>Gallery</h2>
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-8 px-20'>
           {gallery.map((item, index) => (
             <img key={index} src={item} alt={`View ${index + 1}`} className='w-full h-64 object-cover rounded-xl shadow-md hover:scale-105 transition duration-300 cursor-pointer' />
           ))}
         </div>
-        <div className='text-center'>
-          <button onClick={handleGallery} className='h-10 w-40 border-2 border-black bg-black text-white rounded-xl hover:bg-white hover:text-black transition'>
+        <div className='text-center mt-4'>
+          <button onClick={handleGallery} className=' cursor-pointer h-10 w-40 border-2 border-black bg-black text-white rounded-xl hover:bg-white hover:text-black transition'>
             View More
           </button>
         </div>
       </section>
 
       {/* Nearby Attractions */}
-      <section className='w-full px-4 py-12 bg-white'>
-        <h2 className='text-4xl sm:text-5xl font-bold text-center mb-12 font-serif'>Nearby Attractions</h2>
-        <div className='flex flex-col gap-16 max-w-6xl mx-auto'>
+      <section className='w-full px-20 py-20 bg-white'>
+        <h2 className='text-4xl sm:text-5xl font-bold text-center mb-12 font-serif text-black'>Nearby Attractions</h2>
+        <div className='flex flex-col gap-16 max-w-6xl mx-auto mt-20'>
           {near.map((item, index) => (
             <div key={index} className='flex flex-col md:flex-row items-center gap-8'>
               <div className='md:w-1/2 space-y-4'>
@@ -162,7 +183,7 @@ const HomePage = () => {
             </div>
           ))}
           <div className='text-center'>
-            <button onClick={handleAttraction} className='h-10 w-40 border-2 rounded-xl bg-black text-white'>
+            <button onClick={handleAttraction} className=' cursor-pointer h-10 w-40 border-2 rounded-xl bg-black text-white'>
               View More
             </button>
           </div>
@@ -170,7 +191,7 @@ const HomePage = () => {
       </section>
 
       <Footer />
-    </>
+    </div>
   );
 };
 

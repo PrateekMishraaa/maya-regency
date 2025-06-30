@@ -28,15 +28,16 @@ const Contact = () => {
     }
 
     try {
-      const response = await axios.post(
-        'http://localhost:4000/api/contact',
-        formData,
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      );
+     const response = await axios.post(
+  'https://manubackend.onrender.com/api/contact', // ✅ Correct endpoint
+  formData,
+  {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  }
+);
+
       console.log(response);
       notify();
       setFormData({
