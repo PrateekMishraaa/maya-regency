@@ -12,7 +12,7 @@ const Navbar = () => {
     <>
       <nav className='h-20 w-full flex justify-between items-center text-white bg-white shadow-md'>
         <div className='px-20 h-14 '>
-         <a href=""> <img src={Logo} alt="logo" className='h-full w-full' /></a>
+         <a href="/"> <img src={Logo} alt="logo" className='h-full w-full' /></a>
         </div>
 
         <div className='h-full w-[70%]'>
