@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../Components/Navbar';
 import Money from "../assets/payment.jpg";
+import Footer from '../Components/Footer';
 
 const Payment = () => {
     const accountDetails = [
@@ -33,7 +34,7 @@ const Payment = () => {
 
                     <div className="flex flex-col lg:flex-row justify-between gap-8 mt-10">
                         <div className="bg-white p-4 rounded-xl shadow-lg w-full lg:w-1/2 flex items-center justify-center">
-                            <img src={Money} alt="QR Code" className='h-60 w-auto object-contain' />
+                            <img src={Money} alt="QR Code" className='h-40 w-auto object-contain' />
                         </div>
 
                         <div className="bg-white p-6 rounded-xl shadow-lg w-full lg:w-[60%]">
@@ -62,6 +63,7 @@ const Payment = () => {
                     </div>
                 </div>
             </section>
+            <Footer/>
         </>
     );
 };

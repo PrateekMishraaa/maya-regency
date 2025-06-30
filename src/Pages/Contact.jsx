@@ -28,15 +28,13 @@ const Contact = () => {
     }
 
     try {
-     const response = await axios.post(
-  'https://manubackend.onrender.com/api/contact', // ✅ Correct endpoint
-  formData,
-  {
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  }
-);
+      const response = await axios.post(
+        'https://manubackend.onrender.com/api/contact',
+        formData,
+        {
+          headers: { 'Content-Type': 'application/json' },
+        }
+      );
 
       console.log(response);
       notify();
@@ -56,20 +54,17 @@ const Contact = () => {
     <>
       <Navbar />
       <section className="min-h-screen w-full bg-gradient-to-br from-gray-100 to-white px-4 py-16">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-bold text-center text-gray-800 mb-4">
-            We'd Love to Hear From You
-          </h2>
-          <p className="text-center text-gray-600 mb-10 text-base md:text-lg px-2 md:px-12">
-            Whether you have a question, need help planning your stay, or just want to say hello — our team is here and ready to assist you.
-          </p>
-
-          <div className="bg-white p-6 md:p-10 rounded-3xl shadow-xl border border-gray-200">
-            <form
-              onSubmit={handleSubmit}
-              className="flex flex-col items-center gap-6"
-            >
-              {/* Input Fields */}
+        <div className="max-w-7xl mx-auto flex flex-row lg:flex-row gap-12 items-start justify-between">
+          
+          {/* Left: Beautiful Contact Form */}
+          <div className="w-full lg:w-1/2 bg-white p-8 rounded-3xl shadow-2xl">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+              Contact Us
+            </h2>
+            <p className="text-gray-600 mb-8 text-base md:text-lg">
+              We'd love to help you with booking, questions, or special requests!
+            </p>
+            <form onSubmit={handleSubmit} className="flex flex-col gap-6">
               {[
                 {
                   label: 'First Name',
@@ -90,11 +85,8 @@ const Contact = () => {
                   placeholder: 'Enter your email address',
                 },
               ].map((input) => (
-                <div
-                  key={input.name}
-                  className="w-full md:w-[80%] lg:w-[60%] transition-all"
-                >
-                  <label className="block text-base font-medium text-gray-700 mb-2">
+                <div key={input.name}>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
                     {input.label}
                   </label>
                   <input
@@ -109,9 +101,8 @@ const Contact = () => {
                 </div>
               ))}
 
-              {/* Message */}
-              <div className="w-full md:w-[80%] lg:w-[60%]">
-                <label className="block text-base font-medium text-gray-700 mb-2">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
                   Your Message
                 </label>
                 <textarea
@@ -125,14 +116,41 @@ const Contact = () => {
                 />
               </div>
 
-              {/* Submit */}
               <button
                 type="submit"
-                className="w-full md:w-[80%] lg:w-[60%] bg-black text-white py-3 rounded-md hover:bg-white hover:text-black border-2 border-black font-medium text-lg transition-all duration-300"
+                className="bg-black text-white py-3 rounded-md hover:bg-white hover:text-black border-2 border-black font-medium text-lg transition-all duration-300"
               >
                 Send Message
               </button>
             </form>
+          </div>
+
+          {/* Right: Address Details */}
+          <div className="w-full lg:w-1/2 bg-white p-8 rounded-3xl shadow-xl">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+              Reach Us At
+            </h2>
+            <div className="space-y-6 text-gray-700 text-lg leading-relaxed">
+              <p><span className="font-semibold">📍 Address:</span><br />
+                Mannu Maharani Regency, Mallital, Nainital,<br />
+                Uttarakhand - 263001</p>
+              <p><span className="font-semibold">📞 Phone:</span> +91 9876543210</p>
+              <p><span className="font-semibold">📧 Email:</span> info@mannumaharani.com</p>
+              <p><span className="font-semibold">🕒 Timings:</span> Mon - Sun | 9:00 AM - 9:00 PM</p>
+            </div>
+
+            {/* Optional Map */}
+            {/* <div className="mt-6">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!..."
+                width="100%"
+                height="200"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                className="rounded-xl shadow-sm"
+              ></iframe>
+            </div> */}
           </div>
         </div>
       </section>
