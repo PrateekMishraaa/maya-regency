@@ -6,7 +6,7 @@ const Navbar = () => {
   const navigate = useNavigate()
 
   const handleNavigate=()=>{
-    navigate('/book-now')
+    navigate('/contact')
   }
   return (
     <>
@@ -21,11 +21,11 @@ const Navbar = () => {
             <li><a href="/rooms">Room</a></li>
             <li><a href="/gallery">Gallery</a></li>
             <li><a href="/attractions">Attractions</a></li>
-            <li><a href="">Payment</a></li>
+            <li><a href="/payment">Payment</a></li>
 
             {/* Move the button here */}
 
-            <li><a href="">Contact</a></li>
+            <li><a href="/contact">Contact</a></li>
             <li>
               <button onClick={()=>handleNavigate()} className='h-12 w-46 text-xl  cursor-pointer border-black border-2 rounded-xl bg-black text-white font-sans font-light'>
                 Book Your Stay
