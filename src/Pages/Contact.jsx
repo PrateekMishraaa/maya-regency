@@ -54,12 +54,12 @@ const Contact = () => {
   return (
     <>
       <Navbar />
-      <section className="min-h-screen w-full bg-gradient-to-br from-gray-100 to-white px-4 py-16 flex items-center justify-center">
-        <div className="w-full max-w-xl">
+      <section className="min-h-screen w-full bg-gradient-to-br from-gray-100 to-white px-4 py-16">
+        <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-bold text-center text-gray-800 mb-4">
             We'd Love to Hear From You
           </h2>
-          <p className="text-center text-gray-600 mb-10 text-base md:text-lg px-4">
+          <p className="text-center text-gray-600 mb-10 text-base md:text-lg px-2 md:px-12">
             Whether you have a question, need help planning your stay, or just want to say hello — our team is here and ready to assist you.
           </p>
 
@@ -91,7 +91,7 @@ const Contact = () => {
               ].map((input) => (
                 <div
                   key={input.name}
-                  className="w-[90%] md:w-[70%] lg:w-[50%] transition-all"
+                  className="w-full md:w-[80%] lg:w-[60%] transition-all"
                 >
                   <label className="block text-base font-medium text-gray-700 mb-2">
                     {input.label}
@@ -109,7 +109,7 @@ const Contact = () => {
               ))}
 
               {/* Message */}
-              <div className="w-[90%] md:w-[70%] lg:w-[50%]">
+              <div className="w-full md:w-[80%] lg:w-[60%]">
                 <label className="block text-base font-medium text-gray-700 mb-2">
                   Your Message
                 </label>
@@ -127,7 +127,7 @@ const Contact = () => {
               {/* Submit */}
               <button
                 type="submit"
-                className="w-[90%] md:w-[70%] lg:w-[50%] bg-black text-white py-3 rounded-md hover:bg-white hover:text-black border-2 border-black font-medium text-lg transition-all duration-300"
+                className="w-full md:w-[80%] lg:w-[60%] bg-black text-white py-3 rounded-md hover:bg-white hover:text-black border-2 border-black font-medium text-lg transition-all duration-300"
               >
                 Send Message
               </button>
