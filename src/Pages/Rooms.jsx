@@ -4,7 +4,7 @@ import RoomOne from "../assets/room1.jpeg";
 import RoomTwo from "../assets/room2.jpeg"
 import RoomThree from "../assets/room3.jpeg"
 import RoomFour from "../assets/room4.jpeg"
-import Footer from '../Components/Footer';
+// import Footer from '../Components/Footer';
 const Rooms = () => {
   const rooms = [
     {
@@ -80,7 +80,7 @@ const Rooms = () => {
           </div>
         ))}
       </section>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

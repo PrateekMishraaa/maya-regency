@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../Components/Navbar';
-import Footer from '../Components/Footer';
+// import Footer from '../Components/Footer';
 import ParkImg from "../assets/park.jpeg";
 import ParkTwo from "../assets/park2.jpeg";
 
@@ -77,7 +77,7 @@ const About = () => {
         </div>
       </section>
 
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

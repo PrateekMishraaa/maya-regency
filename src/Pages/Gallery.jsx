@@ -23,7 +23,7 @@ import ViewTwenty from "../assets/view20.jpeg";
 import ViewTwentyone from "../assets/view21.jpeg";
 import ViewTwentyTwo from "../assets/view22.jpeg";
 import ViewTwentyThree from "../assets/view23.jpg";
-import Footer from '../Components/Footer';
+// import Footer from '../Components/Footer';
 
 const Gallery = () => {
   const images = [
@@ -48,7 +48,7 @@ const Gallery = () => {
           ))}
         </div>
       </section>
-      <Footer/>
+      {/* <Footer/> */}
     </>
   );
 };

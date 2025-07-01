@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../Components/Navbar';
 import Money from "../assets/payment.jpg";
-import Footer from '../Components/Footer';
+// import Footer from '../Components/Footer';
 
 const Payment = () => {
     const accountDetails = [
@@ -63,7 +63,7 @@ const Payment = () => {
                     </div>
                 </div>
             </section>
-            <Footer/>
+            {/* <Footer/> */}
         </>
     );
 };

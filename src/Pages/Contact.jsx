@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from '../Components/Navbar';
-import Footer from '../Components/Footer';
+// import Footer from '../Components/Footer';
 import toast, { Toaster } from 'react-hot-toast';
 import axios from 'axios';
 
@@ -155,7 +155,7 @@ const Contact = () => {
         </div>
       </section>
 
-      <Footer />
+      {/* <Footer /> */}
       <Toaster
         position="top-center"
         reverseOrder={false}

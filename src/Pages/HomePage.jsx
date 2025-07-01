@@ -17,19 +17,20 @@ import ViewFive from "../assets/view5.jpeg";
 import ViewSix from "../assets/view6.jpeg";
 import ViewSeven from "../assets/view7.jpeg";
 import ViewEight from "../assets/view8.jpeg";
-
+import Naini from "../assets/nainilake.jpg"
+import Naina from "../assets/nainadevi.jpg"
 const HomePage = () => {
   const navigate = useNavigate();
 
   const near = [
     {
-      img: ViewSeven,
+      img: Naini,
       title: "Naini Lake",
       description:
         "Endless lake surrounded by green mountains, cool breeze and birdsong. Colorful boats and clear water. Golden fish swimming below. A peaceful dream spot."
     },
     {
-      img: ViewEight,
+      img: Naina,
       title: "Naina Devi Temple",
       description:
         "Colorful flags fluttering in the breeze. Fragrance of incense in the fresh mountain air. Glimpse of the Naina Devi idol inside the shrine. Calm aura and peaceful chants all around. A divine spot for blessings and serenity."
@@ -76,6 +77,7 @@ const HomePage = () => {
   const handleAttraction = () => navigate('/attractions');
 
   return (
+  <>
     <div className='overflow-x-hidden'>
       <Navbar />
 
@@ -113,7 +115,7 @@ const HomePage = () => {
 
       {/* Accommodations Section */}
       <section className='w-full px-20   bg-white'>
-        <h2 className='text-3xl sm:text-4xl font-bold text-center  mb-10 font-serif '>Accommodations</h2>
+        <h2 className='text-3xl sm:text-4xl font-bold text-center  mb-10 font-serif py-8'>Accommodations</h2>
         <div className='flex flex-col gap-16 max-w-6xl mx-auto'>
           {accommodations.map((item, index) => (
             <div key={index} className='flex flex-col md:flex-row justify-between items-start gap-8 mb-4'>
@@ -170,9 +172,9 @@ const HomePage = () => {
               <div className='md:w-1/2 space-y-4'>
                 <h3 className='text-2xl sm:text-3xl font-bold font-serif'>{item.title}</h3>
                 <p className='text-gray-700 text-lg leading-relaxed'>{item.description}</p>
-                <div className='flex gap-4'>
+                <div className='flex gap-4 '>
                   <button className='h-10 px-6 border-2 rounded-xl bg-black text-white'>Contact</button>
-                  <button onClick={handleAttraction} className='h-10 px-6 border-2 rounded-xl bg-white text-black border-black hover:bg-black hover:text-white transition'>
+                  <button onClick={handleAttraction} className='h-10 px-6 border-2 rounded-xl  bg-white text-black border-black hover:bg-black hover:text-white transition'>
                     View More
                   </button>
                 </div>
@@ -182,7 +184,7 @@ const HomePage = () => {
               </div>
             </div>
           ))}
-          <div className='text-center'>
+          <div className='text-center py-8'>
             <button onClick={handleAttraction} className=' cursor-pointer h-10 w-40 border-2 rounded-xl bg-black text-white'>
               View More
             </button>
@@ -190,8 +192,10 @@ const HomePage = () => {
         </div>
       </section>
 
-      <Footer />
+     
     </div>
+    <Footer/>
+  </>
   );
 };
 
