@@ -34,11 +34,11 @@ const Payment = () => {
 
                     <div className="flex flex-col lg:flex-row justify-between gap-8 mt-10">
                         <div className="bg-white p-4 rounded-xl shadow-lg w-full lg:w-1/2 flex items-center justify-center">
-                            <img src={Money} alt="QR Code" className='h-40 w-auto object-contain' />
+                            <img src={Money} alt="QR Code" className='h-64 w-auto object-contain' />
                         </div>
 
                         <div className="bg-white p-6 rounded-xl shadow-lg w-full lg:w-[60%]">
-                            <h2 className='text-gray-800 font-extrabold text-2xl md:text-3xl uppercase text-center mb-6'>
+                            <h2 className='text-gray-800 font-bold font-extrabold text-2xl md:text-3xl uppercase text-center mb-6'>
                                 Bank Account Details
                             </h2>
 
@@ -46,7 +46,7 @@ const Payment = () => {
                                 {accountDetails.map((item, index) => (
                                     <div
                                         key={index}
-                                        className='w-full md:w-[48%] bg-gray-50 hover:bg-gray-100 transition rounded-lg p-4 border border-gray-300 shadow-sm text-left'
+                                        className='w-full md:w-[48%] bg-gray-50 hover:bg-gray-100 rounded-3xl transition rounded-lg p-4 border border-gray-300 shadow-sm text-left'
                                     >
                                         <h3 className='font-bold text-red-600 text-lg md:text-xl mb-2'>{item.bankName}</h3>
                                         <p className='text-sm mb-1'><span className='font-semibold text-gray-700'>Account Holder:</span> {item.accountHolder}</p>
