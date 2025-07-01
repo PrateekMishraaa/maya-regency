@@ -1,9 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import whatsapp from "../assets/whatsapp.svg"
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
-
+import Phone from "../assets/phone.svg"
 import Banner from "../assets/bannerimg.jpeg";
 import BannerTwo from "../assets/banner2.jpeg";
 import RoomOne from "../assets/room1.jpeg";
@@ -89,17 +89,18 @@ const HomePage = () => {
 
       {/* About Us Section */}
     {/* About Us Section */}
-<section className='w-full px-4 sm:px-10 py-16 bg-gray-100'>
-  {/* <h2 className='text-4xl sm:text-5xl font-bold text-center mb-12 font-sans text-black'>
-    About Us
-  </h2> */}
+<section className='w-full px-4 sm:px-10 py-40 bg-gray-100'>
   <div className='flex flex-col md:flex-row items-center gap-10 max-w-6xl mx-auto'>
     <img
       src={aboutUs[0].img}
       alt="About Us"
       className='w-full md:w-1/2 rounded-3xl shadow-lg hover:scale-95 transition duration-300 cursor-pointer'
     />
+    
     <div className='md:w-1/2 flex flex-col gap-6'>
+      <h2 className='text-3xl sm:text-4xl font-bold font-sans text-black text-center md:text-left'>
+        About Us
+      </h2>
       <p className='text-lg text-gray-700 leading-relaxed font-medium'>
         {aboutUs[0].description}
       </p>
@@ -114,8 +115,9 @@ const HomePage = () => {
 </section>
 
 
+
       {/* Accommodations Section */}
-      <section className='w-full px-20   bg-white'>
+      <section className='w-full px-20 mt-40  bg-white'>
         <h2 className='text-3xl sm:text-4xl font-bold text-center  mb-10 font-serif py-8'>Accommodations</h2>
         <div className='flex flex-col gap-16 max-w-6xl mx-auto'>
           {accommodations.map((item, index) => (
@@ -150,14 +152,14 @@ const HomePage = () => {
       </section>
 
       {/* Gallery Section */}
-      <section className='w-full px-4 py-20 bg-gray-100 relative top-20'>
+      <section className='w-full px-4 py-20  relative top-20'>
         <h2 className='text-4xl sm:text-5xl font-bold text-center mb-10 font-serif p-8'>Gallery</h2>
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-8 px-20'>
           {gallery.map((item, index) => (
             <img key={index} src={item} alt={`View ${index + 1}`} className='w-full h-64 object-cover rounded-xl shadow-md hover:scale-105 transition duration-300 cursor-pointer' />
           ))}
         </div>
-        <div className='text-center mt-4'>
+        <div className='text-center mt-26'>
           <button onClick={handleGallery} className=' cursor-pointer h-10 w-40 border-2 border-black bg-black text-white rounded-xl hover:bg-white hover:text-black transition mt-4'>
             View More
           </button>
@@ -165,7 +167,7 @@ const HomePage = () => {
       </section>
 
       {/* Nearby Attractions */}
-      <section className='w-full px-20 mt-4 bg-white'>
+      <section className='w-full px-20 mt-40 bg-white'>
         <h2 className='text-4xl sm:text-5xl font-bold text-center mb-12 font-serif text-black'>Nearby Attractions</h2>
         <div className='flex flex-col gap-16 max-w-6xl mx-auto mt-20'>
           {near.map((item, index) => (
@@ -195,6 +197,28 @@ const HomePage = () => {
 
      
     </div>
+<div className='flex justify-between'>
+  <div className="fixed bottom-24 left-4 z-50">
+  <a
+    href="https://api.whatsapp.com/send?phone=917835834101&text=Hello!%20I%20have%20a%20query%20regarding%20Manu%20Maharani%20Regency."
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img src={whatsapp} className="h-10 w-40" alt="WhatsApp" />
+  </a>
+</div>
+
+<div className="fixed bottom-24 left-4 z-50">
+  <a
+    href="tel:917835834101"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img src={Phone} className="h-10 w-40" alt="WhatsApp" />
+  </a>
+</div>
+</div>
+
     <Footer/>
   </>
   );
