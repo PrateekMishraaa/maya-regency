@@ -8,7 +8,7 @@ import Eco from "../assets/eco.jpg";
 import Kil from "../assets/kil.jpg";
 import SnowPoint from "../assets/snow.jpg";
 import House from "../assets/house.jpg";
-// import Footer from '../Components/Footer';
+import Footer from '../Components/Footer';
 
 const Attractions = () => {
   const attraction = [
@@ -75,7 +75,7 @@ const Attractions = () => {
           </div>
         ))}
       </section>
-      {/* <Footer/> */}
+      <Footer/>
     </>
   );
 };

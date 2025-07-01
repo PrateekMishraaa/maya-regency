@@ -1,80 +1,44 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Logo from '../assets/logo.jpg';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import React from 'react'
+import Logo from "../assets/logo.jpg"
+import { useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
-  const navigate = useNavigate();
-  const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate()
 
-  const handleNavigate = () => {
-    navigate('/contact');
-  };
-
+  const handleNavigate=()=>{
+    navigate('/contact')
+  }
   return (
-    <nav className="bg-white shadow-md text-black w-full fixed top-0 left-0 z-50">
-      <div className="max-w-7xl mx-auto flex justify-between items-center h-20 px-6 md:px-20">
-        {/* Logo */}
-        <a href="/" className="h-14 w-24 flex-shrink-0">
-          <img src={Logo} alt="logo" className="h-full w-full object-contain" />
-        </a>
-
-        {/* Desktop Menu - Hidden on mobile */}
-        <ul className="hidden md:flex flex justify-between gap-6 items-center text-lg font-semibold">
-          <li><a href="/about">About</a></li>
-          <li><a href="/rooms">Room</a></li>
-          <li><a href="/gallery">Gallery</a></li>
-          <li><a href="/attractions">Attractions</a></li>
-          <li><a href="/payment">Payment</a></li>
-          <li><a href="/contact">Contact</a></li>
-          <li>
-            <button
-              onClick={handleNavigate}
-              className="px-4 py-2 border-2 border-black bg-black text-white rounded-xl hover:bg-white hover:text-black transition duration-300"
-            >
-              Book Your Stay
-            </button>
-          </li>
-        </ul>
-
-        {/* Mobile menu icon - Hidden on desktop */}
-        <div className="md:hidden flex items-center">
-          <button onClick={() => setMenuOpen(!menuOpen)}>
-            {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-          </button>
+    <>
+      <nav className='h-20 w-full flex justify-between items-center text-white bg-white shadow-md'>
+        <div className='px-20 h-14 '>
+         <a href="/"> <img src={Logo} alt="logo" className='h-full w-full' /></a>
         </div>
-      </div>
 
-      {/* Mobile Menu - Hidden on desktop */}
-      {menuOpen && (
-        <div className="md:hidden bg-white w-full px-6 pt-4 pb-6 shadow-md">
-          <ul className="flex flex-col gap-4 text-base font-medium">
-            <li><a href="/about" onClick={() => setMenuOpen(false)}>About</a></li>
-            <li><a href="/rooms" onClick={() => setMenuOpen(false)}>Room</a></li>
-            <li><a href="/gallery" onClick={() => setMenuOpen(false)}>Gallery</a></li>
-            <li><a href="/attractions" onClick={() => setMenuOpen(false)}>Attractions</a></li>
-            <li><a href="/payment" onClick={() => setMenuOpen(false)}>Payment</a></li>
-            <li><a href="/contact" onClick={() => setMenuOpen(false)}>Contact</a></li>
+        <div className='h-full w-[70%]'>
+          <ul className='h-full w-full gap-6 flex justify-between items-center text-black font-semibold font-sans text-xl px-20 py-3'>
+            <li><a href="/about">About</a></li>
+            <li><a href="/rooms">Room</a></li>
+            <li><a href="/gallery">Gallery</a></li>
+            <li><a href="/attractions">Attractions</a></li>
+            <li><a href="/payment">Payment</a></li>
+
+            {/* Move the button here */}
+
+            <li><a href="/contact">Contact</a></li>
             <li>
-              <button
-                onClick={() => {
-                  handleNavigate();
-                  setMenuOpen(false);
-                }}
-                className="w-full px-4 py-2 border-2 border-black bg-black text-white rounded-xl hover:bg-white hover:text-black transition duration-300"
-              >
+              <button onClick={()=>handleNavigate()} className='h-12 w-46 text-xl  cursor-pointer border-black border-2 rounded-xl bg-black text-white font-sans font-light'>
                 Book Your Stay
               </button>
             </li>
           </ul>
         </div>
-      )}
-    </nav>
-  );
-};
+      </nav>
+    </>
+  )
+}
 
-export default Navbar;
-
+export default Navbar
 
 
 

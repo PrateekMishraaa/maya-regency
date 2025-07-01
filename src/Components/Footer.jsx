@@ -83,15 +83,15 @@ const Footer = () => {
 
         {/* WhatsApp & Call */}
      <div className="absolute right-0 top-0 lg:static">
-    <h2 className="text-lg font-semibold mb-4 text-red-600 ">Support</h2>
-    <div className="flex gap-4 items-center">
+    <h2 className="text-lg font-semibold mb-4 text-red-600 mr-10">Support</h2>
+    <div className="flex gap-4 items-center mr-4">
       <a
         href="https://api.whatsapp.com/send?phone=917835834101&text=Hello!%20I%20have%20a%20query%20regarding%20Manu%20Maharani%20Regency."
-        className="text-3xl hover:text-green-500"
+        className="text-3xl hover:text-green-500 mr-10"
       >
         <FaWhatsapp />
       </a>
-      <a href="tel:+917835834101" className="text-xl hover:text-white">
+      <a href="tel:+917835834101" className="text-xl hover:text-white mr-10">
         <MdCall />
       </a>
     </div>
