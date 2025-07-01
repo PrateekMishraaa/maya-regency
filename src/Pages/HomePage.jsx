@@ -19,6 +19,7 @@ import ViewSeven from "../assets/view7.jpeg";
 import ViewEight from "../assets/view8.jpeg";
 import Naini from "../assets/nainilake.jpg"
 import Naina from "../assets/nainadevi.jpg"
+import ViewTwenty from "../assets/view23.jpg"
 const HomePage = () => {
   const navigate = useNavigate();
 
@@ -69,7 +70,7 @@ const HomePage = () => {
     }
   ];
 
-  const gallery = [ViewOne, ViewTwo, ViewThree, ViewFour, ViewFive, ViewSix];
+  const gallery = [ViewOne, ViewTwenty, ViewThree, ViewFour, ViewFive, ViewSix];
 
   const handleNavigate = () => navigate('/about');
   const handleBook = () => navigate('/book-now');
@@ -157,14 +158,14 @@ const HomePage = () => {
           ))}
         </div>
         <div className='text-center mt-4'>
-          <button onClick={handleGallery} className=' cursor-pointer h-10 w-40 border-2 border-black bg-black text-white rounded-xl hover:bg-white hover:text-black transition'>
+          <button onClick={handleGallery} className=' cursor-pointer h-10 w-40 border-2 border-black bg-black text-white rounded-xl hover:bg-white hover:text-black transition mt-4'>
             View More
           </button>
         </div>
       </section>
 
       {/* Nearby Attractions */}
-      <section className='w-full px-20 py-20 bg-white'>
+      <section className='w-full px-20 mt-4 bg-white'>
         <h2 className='text-4xl sm:text-5xl font-bold text-center mb-12 font-serif text-black'>Nearby Attractions</h2>
         <div className='flex flex-col gap-16 max-w-6xl mx-auto mt-20'>
           {near.map((item, index) => (
@@ -185,7 +186,7 @@ const HomePage = () => {
             </div>
           ))}
           <div className='text-center py-8'>
-            <button onClick={handleAttraction} className=' cursor-pointer h-10 w-40 border-2 rounded-xl bg-black text-white'>
+            <button onClick={handleAttraction} className=' cursor-pointer h-10 w-40 border-2 rounded-xl bg-black text-white '>
               View More
             </button>
           </div>
