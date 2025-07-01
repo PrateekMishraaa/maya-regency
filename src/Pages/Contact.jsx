@@ -36,7 +36,7 @@ const Contact = () => {
         }
       );
 
-      console.log(response);
+      console.log(response.data);
       notify();
       setFormData({
         FirstName: '',
@@ -132,11 +132,13 @@ const Contact = () => {
             </h2>
             <div className="space-y-6 text-gray-700 text-lg leading-relaxed">
               <p><span className="font-semibold">📍 Address:</span><br />
-                Mannu Maharani Regency, Mallital, Nainital,<br />
-                Uttarakhand - 263001</p>
-              <p><span className="font-semibold">📞 Phone:</span> +91 9876543210</p>
-              <p><span className="font-semibold">📧 Email:</span> info@mannumaharani.com</p>
-              <p><span className="font-semibold">🕒 Timings:</span> Mon - Sun | 9:00 AM - 9:00 PM</p>
+                Thandi Rd, Tallital, Nainital, Uttarakhand 263002<br />
+                </p>
+              <p><span className="font-semibold">📞 Phone:</span> +91 7835834101</p>
+                <p><span className="font-semibold">📞 Phone:</span> +91 9971855186</p>
+                 <p><span className="font-semibold">📞 Phone:</span> +91 8743000197</p>
+              <p><span className="font-semibold">📧 Email:</span> booking@rchronline.com</p>
+              {/* <p><span className="font-semibold">🕒 Timings:</span> Mon - Sun | 9:00 AM - 9:00 PM</p> */}
             </div>
 
             {/* Optional Map */}
