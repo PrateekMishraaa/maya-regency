@@ -27,7 +27,7 @@ import Footer from '../Components/Footer';
 
 const Gallery = () => {
   const images = [
-    ViewOne, ViewTwentyThree, ViewThree, ViewFour, ViewFive, ViewSix, ViewSeven, ViewEight, ViewNine,
+    ViewEleven, ViewTwentyThree, ViewThree, ViewFour, ViewFive, ViewSix, ViewSeven, ViewEight, ViewNine,
     ViewTen, ViewEleven, ViewTwelve, ViewThirteen, ViewFourtheen, ViewFithteen, ViewSixtheen,
     ViewSeventeen, ViewEightteen, ViewNineTeen, ViewTwenty, ViewTwentyone, ViewTwentyTwo, ViewTwentyThree
   ];

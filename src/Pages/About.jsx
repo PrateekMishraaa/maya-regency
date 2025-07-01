@@ -33,13 +33,13 @@ const About = () => {
       <Navbar />
 
       {/* About Us Section */}
-      <section className="bg-white py-8 px-4 sm:px-6 lg:px-16">
-        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-start gap-6">
+      <section className="bg-white py-8 px-4 sm:px-6 lg:px-16 ">
+        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-start gap-6 p-10">
           <div className="w-full lg:w-2/3">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
               About Us
             </h2>
-            <p className="text-base lg:text-lg text-gray-700 leading-relaxed">
+            <p className="text-base lg:text-lg text-gray-700 leading-relaxed py-4">
               {about[0].description}
             </p>
           </div>
@@ -66,11 +66,11 @@ const About = () => {
               className="w-[260px] lg:w-[320px] h-auto rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
             /> */}
           </div>
-          <div className="w-full lg:w-2/3">
+          <div className="w-full lg:w-2/3 p-10">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4 text-center lg:text-left">
               Why Guests Choose Us
             </h2>
-            <p className="text-base lg:text-lg text-gray-700 leading-relaxed text-justify">
+            <p className="text-base lg:text-lg text-gray-700 leading-relaxed text-justify py-4">
               {about2[0].description}
             </p>
           </div>

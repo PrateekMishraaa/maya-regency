@@ -70,7 +70,7 @@ const HomePage = () => {
     }
   ];
 
-  const gallery = [ViewOne, ViewTwenty, ViewThree, ViewFour, ViewFive, ViewSix];
+  const gallery = [ViewEight, ViewTwenty, ViewThree, ViewFour, ViewFive, ViewSix];
 
   const handleNavigate = () => navigate('/about');
   const handleBook = () => navigate('/book-now');
