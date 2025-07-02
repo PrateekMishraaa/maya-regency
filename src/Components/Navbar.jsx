@@ -1,124 +1,381 @@
-import React from 'react'
+import React, { useState } from 'react';
 import Logo from "../assets/logo.jpg"
-import { useNavigate } from 'react-router-dom'
-
 const Navbar = () => {
-  const navigate = useNavigate()
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const handleNavigate=()=>{
-    navigate('/contact')
-  }
+  const handleNavigate = () => {
+    // Replace with your navigation logic
+    // For demo purposes, this would navigate to contact page
+    window.location.href = '/contact';
+    setMenuOpen(false); // Close menu after navigation
+  };
+
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+
+  const navbarStyles = {
+    nav: {
+      height: '80px',
+      width: '100%',
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      backgroundColor: '#ffffff',
+      boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+      position: 'relative',
+      zIndex: 1000,
+      padding: '0 1rem'
+    },
+    logoContainer: {
+      height: '56px',
+      flexShrink: 0
+    },
+    logoImage: {
+      height: '100%',
+      width: 'auto',
+      objectFit: 'contain'
+    },
+    desktopMenu: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '2rem',
+      listStyle: 'none',
+      margin: 0,
+      padding: 0
+    },
+    desktopMenuItem: {
+      margin: 0
+    },
+    navLink: {
+      color: '#000000',
+      textDecoration: 'none',
+      fontSize: '1.125rem',
+      fontWeight: '600',
+      fontFamily: 'sans-serif',
+      transition: 'color 0.3s ease',
+      cursor: 'pointer'
+    },
+    bookButton: {
+      height: '48px',
+      padding: '0 1.5rem',
+      fontSize: '1rem',
+      cursor: 'pointer',
+      border: '2px solid #000000',
+      borderRadius: '0.75rem',
+      backgroundColor: '#000000',
+      color: '#ffffff',
+      fontFamily: 'sans-serif',
+      fontWeight: '500',
+      transition: 'all 0.3s ease',
+      whiteSpace: 'nowrap'
+    },
+    mobileMenuToggle: {
+      display: 'none',
+      flexDirection: 'column',
+      cursor: 'pointer',
+      padding: '0.5rem',
+      background: 'none',
+      border: 'none'
+    },
+    hamburgerLine: {
+      width: '25px',
+      height: '3px',
+      backgroundColor: '#000000',
+      margin: '3px 0',
+      transition: '0.3s',
+      borderRadius: '2px'
+    },
+    mobileMenu: {
+      position: 'absolute',
+      top: '100%',
+      left: 0,
+      width: '100%',
+      backgroundColor: '#ffffff',
+      boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+      display: 'none',
+      flexDirection: 'column',
+      padding: '1rem 0',
+      zIndex: 999
+    },
+    mobileMenuVisible: {
+      display: 'flex'
+    },
+    mobileMenuItem: {
+      padding: '0.75rem 2rem',
+      borderBottom: '1px solid #f3f4f6'
+    },
+    mobileNavLink: {
+      color: '#000000',
+      textDecoration: 'none',
+      fontSize: '1.125rem',
+      fontWeight: '600',
+      fontFamily: 'sans-serif',
+      display: 'block',
+      width: '100%'
+    },
+    mobileBookButton: {
+      margin: '1rem 2rem',
+      padding: '0.75rem 1.5rem',
+      fontSize: '1rem',
+      cursor: 'pointer',
+      border: '2px solid #000000',
+      borderRadius: '0.75rem',
+      backgroundColor: '#000000',
+      color: '#ffffff',
+      fontFamily: 'sans-serif',
+      fontWeight: '500',
+      transition: 'all 0.3s ease',
+      width: 'calc(100% - 4rem)'
+    }
+  };
+
+  // Responsive styles using media queries
+  const mediaStyles = `
+    @media (max-width: 1024px) {
+      .desktop-menu {
+        gap: 1.5rem !important;
+      }
+      .nav-link {
+        font-size: 1rem !important;
+      }
+      .book-button {
+        padding: 0 1rem !important;
+        font-size: 0.9rem !important;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 0 1rem !important;
+      }
+      .desktop-menu {
+        display: none !important;
+      }
+      .mobile-toggle {
+        display: flex !important;
+      }
+      .logo-container {
+        height: 48px !important;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .navbar {
+        height: 70px !important;
+        padding: 0 0.5rem !important;
+      }
+      .logo-container {
+        height: 40px !important;
+      }
+    }
+  `;
+
   return (
     <>
-      <nav className='h-20 w-full flex justify-between items-center text-white bg-white shadow-md'>
-        <div className='px-20 h-14 '>
-         <a href="/"> <img src={Logo} alt="logo" className='h-full w-full' /></a>
+      <style>{mediaStyles}</style>
+      <nav className="navbar" style={navbarStyles.nav}>
+        {/* Logo */}
+        <div className="logo-container" style={navbarStyles.logoContainer}>
+          <a href="/">
+            <img 
+              src={Logo} 
+              alt="logo" 
+              style={navbarStyles.logoImage}
+            />
+          </a>
         </div>
 
-        <div className='h-full w-[70%]'>
-          <ul className='h-full w-full gap-6 flex justify-between items-center text-black font-semibold font-sans text-xl px-20 py-3'>
-            <li><a href="/about">About</a></li>
-            <li><a href="/rooms">Room</a></li>
-            <li><a href="/gallery">Gallery</a></li>
-            <li><a href="/attractions">Attractions</a></li>
-            <li><a href="/payment">Payment</a></li>
+        {/* Desktop Menu */}
+        <ul className="desktop-menu" style={navbarStyles.desktopMenu}>
+          <li style={navbarStyles.desktopMenuItem}>
+            <a 
+              href="/about" 
+              className="nav-link"
+              style={navbarStyles.navLink}
+              onMouseOver={(e) => e.target.style.color = '#666666'}
+              onMouseOut={(e) => e.target.style.color = '#000000'}
+            >
+              About
+            </a>
+          </li>
+          <li style={navbarStyles.desktopMenuItem}>
+            <a 
+              href="/rooms" 
+              className="nav-link"
+              style={navbarStyles.navLink}
+              onMouseOver={(e) => e.target.style.color = '#666666'}
+              onMouseOut={(e) => e.target.style.color = '#000000'}
+            >
+              Room
+            </a>
+          </li>
+          <li style={navbarStyles.desktopMenuItem}>
+            <a 
+              href="/gallery" 
+              className="nav-link"
+              style={navbarStyles.navLink}
+              onMouseOver={(e) => e.target.style.color = '#666666'}
+              onMouseOut={(e) => e.target.style.color = '#000000'}
+            >
+              Gallery
+            </a>
+          </li>
+          <li style={navbarStyles.desktopMenuItem}>
+            <a 
+              href="/attractions" 
+              className="nav-link"
+              style={navbarStyles.navLink}
+              onMouseOver={(e) => e.target.style.color = '#666666'}
+              onMouseOut={(e) => e.target.style.color = '#000000'}
+            >
+              Attractions
+            </a>
+          </li>
+          <li style={navbarStyles.desktopMenuItem}>
+            <a 
+              href="/payment" 
+              className="nav-link"
+              style={navbarStyles.navLink}
+              onMouseOver={(e) => e.target.style.color = '#666666'}
+              onMouseOut={(e) => e.target.style.color = '#000000'}
+            >
+              Payment
+            </a>
+          </li>
+          <li style={navbarStyles.desktopMenuItem}>
+            <a 
+              href="/contact" 
+              className="nav-link"
+              style={navbarStyles.navLink}
+              onMouseOver={(e) => e.target.style.color = '#666666'}
+              onMouseOut={(e) => e.target.style.color = '#000000'}
+            >
+              Contact
+            </a>
+          </li>
+          <li style={navbarStyles.desktopMenuItem}>
+            <button
+              onClick={handleNavigate}
+              className="book-button"
+              style={navbarStyles.bookButton}
+              onMouseOver={(e) => {
+                e.target.style.backgroundColor = '#ffffff';
+                e.target.style.color = '#000000';
+              }}
+              onMouseOut={(e) => {
+                e.target.style.backgroundColor = '#000000';
+                e.target.style.color = '#ffffff';
+              }}
+            >
+              Book Your Stay
+            </button>
+          </li>
+        </ul>
 
-            {/* Move the button here */}
+        {/* Mobile Menu Toggle */}
+        <button 
+          className="mobile-toggle"
+          style={navbarStyles.mobileMenuToggle}
+          onClick={toggleMenu}
+        >
+          <div 
+            style={{
+              ...navbarStyles.hamburgerLine,
+              transform: menuOpen ? 'rotate(-45deg) translate(-5px, 6px)' : 'none'
+            }}
+          ></div>
+          <div 
+            style={{
+              ...navbarStyles.hamburgerLine,
+              opacity: menuOpen ? '0' : '1'
+            }}
+          ></div>
+          <div 
+            style={{
+              ...navbarStyles.hamburgerLine,
+              transform: menuOpen ? 'rotate(45deg) translate(-5px, -6px)' : 'none'
+            }}
+          ></div>
+        </button>
 
-            <li><a href="/contact">Contact</a></li>
-            <li>
-              <button onClick={()=>handleNavigate()} className='h-12 w-46 text-xl  cursor-pointer border-black border-2 rounded-xl bg-black text-white font-sans font-light'>
-                Book Your Stay
-              </button>
-            </li>
-          </ul>
+        {/* Mobile Menu */}
+        <div 
+          style={{
+            ...navbarStyles.mobileMenu,
+            ...(menuOpen ? navbarStyles.mobileMenuVisible : {})
+          }}
+        >
+          <div style={navbarStyles.mobileMenuItem}>
+            <a 
+              href="/about" 
+              style={navbarStyles.mobileNavLink}
+              onClick={() => setMenuOpen(false)}
+            >
+              About
+            </a>
+          </div>
+          <div style={navbarStyles.mobileMenuItem}>
+            <a 
+              href="/rooms" 
+              style={navbarStyles.mobileNavLink}
+              onClick={() => setMenuOpen(false)}
+            >
+              Room
+            </a>
+          </div>
+          <div style={navbarStyles.mobileMenuItem}>
+            <a 
+              href="/gallery" 
+              style={navbarStyles.mobileNavLink}
+              onClick={() => setMenuOpen(false)}
+            >
+              Gallery
+            </a>
+          </div>
+          <div style={navbarStyles.mobileMenuItem}>
+            <a 
+              href="/attractions" 
+              style={navbarStyles.mobileNavLink}
+              onClick={() => setMenuOpen(false)}
+            >
+              Attractions
+            </a>
+          </div>
+          <div style={navbarStyles.mobileMenuItem}>
+            <a 
+              href="/payment" 
+              style={navbarStyles.mobileNavLink}
+              onClick={() => setMenuOpen(false)}
+            >
+              Payment
+            </a>
+          </div>
+          <div style={navbarStyles.mobileMenuItem}>
+            <a 
+              href="/contact" 
+              style={navbarStyles.mobileNavLink}
+              onClick={() => setMenuOpen(false)}
+            >
+              Contact
+            </a>
+          </div>
+          <button
+            onClick={handleNavigate}
+            style={navbarStyles.mobileBookButton}
+            onMouseOver={(e) => {
+              e.target.style.backgroundColor = '#ffffff';
+              e.target.style.color = '#000000';
+            }}
+            onMouseOut={(e) => {
+              e.target.style.backgroundColor = '#000000';
+              e.target.style.color = '#ffffff';
+            }}
+          >
+            Book Your Stay
+          </button>
         </div>
       </nav>
     </>
-  )
-}
+  );
+};
 
-export default Navbar
-
-
-
-
-
-
-
-// import React, { useState } from 'react';
-// import Logo from "../assets/logo.jpg";
-// import { useNavigate } from 'react-router-dom';
-// import { FaBars, FaTimes } from 'react-icons/fa';
-
-// const Navbar = () => {
-//   const navigate = useNavigate();
-//   const [menuOpen, setMenuOpen] = useState(false);
-
-//   const handleNavigate = () => navigate('/contact');
-//   const toggleMenu = () => setMenuOpen(!menuOpen);
-
-//   return (
-//     <nav className='w-full bg-white shadow-md fixed top-0 left-0 z-50'>
-//       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-//         <div className='flex justify-between items-center h-20'>
-
-//           {/* Logo */}
-//           <div className='flex-shrink-0'>
-//             <a href="/">
-//               <img src={Logo} alt="logo" className='h-14 w-auto' />
-//             </a>
-//           </div>
-
-//           {/* Desktop Menu */}
-//           <div className='hidden md:flex items-center space-x-8 text-black font-semibold text-lg'>
-//             <a href="/about" className='hover:text-gray-600 transition'>About</a>
-//             <a href="/rooms" className='hover:text-gray-600 transition'>Room</a>
-//             <a href="/gallery" className='hover:text-gray-600 transition'>Gallery</a>
-//             <a href="/attractions" className='hover:text-gray-600 transition'>Attractions</a>
-//             <a href="/payment" className='hover:text-gray-600 transition'>Payment</a>
-//             <a href="/contact" className='hover:text-gray-600 transition'>Contact</a>
-//             <button
-//               onClick={handleNavigate}
-//               className='px-5 py-2 border-2 border-black bg-black text-white rounded-xl hover:bg-white hover:text-black transition font-medium'
-//             >
-//               Book Your Stay
-//             </button>
-//           </div>
-
-//           {/* Mobile Menu Toggle Icon */}
-//           <div className='md:hidden flex items-center'>
-//             <button onClick={toggleMenu} className='text-2xl text-black'>
-//               {menuOpen ? <FaTimes /> : <FaBars />}
-//             </button>
-//           </div>
-//         </div>
-//       </div>
-
-//       {/* Mobile Dropdown Menu */}
-//       <div className={`${menuOpen ? 'block' : 'hidden'} md:hidden bg-white px-6 pt-4 pb-6 shadow-lg`}>
-//         <ul className='flex flex-col space-y-6 text-black font-semibold text-lg'>
-//           <li><a href="/about" onClick={toggleMenu}>About</a></li>
-//           <li><a href="/rooms" onClick={toggleMenu}>Room</a></li>
-//           <li><a href="/gallery" onClick={toggleMenu}>Gallery</a></li>
-//           <li><a href="/attractions" onClick={toggleMenu}>Attractions</a></li>
-//           <li><a href="/payment" onClick={toggleMenu}>Payment</a></li>
-//           <li><a href="/contact" onClick={toggleMenu}>Contact</a></li>
-//           <li>
-//             <button
-//               onClick={() => {
-//                 toggleMenu();
-//                 handleNavigate();
-//               }}
-//               className='w-full py-2 border-2 border-black bg-black text-white rounded-xl hover:bg-white hover:text-black transition font-medium'
-//             >
-//               Book Your Stay
-//             </button>
-//           </li>
-//         </ul>
-//       </div>
-//     </nav>
-//   );
-// };
-
-// export default Navbar;
+export default Navbar;

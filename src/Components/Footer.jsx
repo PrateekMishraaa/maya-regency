@@ -11,95 +11,264 @@ import { BsInstagram } from 'react-icons/bs';
 import { MdCall } from 'react-icons/md';
 
 const Footer = () => {
+  const footerStyles = {
+    footer: {
+      backgroundColor: '#000000',
+      color: '#ffffff',
+      padding: '3rem 1.5rem',
+      fontSize: '0.875rem'
+    },
+    container: {
+      maxWidth: '1280px',
+      margin: '0 auto',
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+      gap: '2rem',
+      padding: '2rem 0'
+    },
+    sectionTitle: {
+      fontSize: '1.25rem',
+      fontWeight: '600',
+      marginBottom: '1rem',
+      color: '#dc2626'
+    },
+    contactSection: {
+      gridColumn: 'span 1'
+    },
+    contactItem: {
+      display: 'flex',
+      alignItems: 'flex-start',
+      gap: '0.5rem',
+      marginBottom: '0.75rem'
+    },
+    phoneItem: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '0.5rem',
+      marginBottom: '0.75rem'
+    },
+    icon: {
+      color: '#dc2626',
+      fontSize: '1rem',
+      marginTop: '0.25rem',
+      flexShrink: 0
+    },
+    phoneIcon: {
+      color: '#dc2626',
+      fontSize: '1rem',
+      flexShrink: 0
+    },
+    link: {
+      color: '#9ca3af',
+      textDecoration: 'none',
+      transition: 'color 0.3s ease'
+    },
+    quickLinksContainer: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '0.75rem'
+    },
+    socialContainer: {
+      display: 'flex',
+      gap: '1rem',
+      fontSize: '1.25rem',
+      flexWrap: 'wrap'
+    },
+    socialLink: {
+      color: '#ffffff',
+      transition: 'color 0.3s ease'
+    },
+    supportContainer: {
+      display: 'flex',
+      gap: '1rem',
+      alignItems: 'center',
+      flexWrap: 'wrap'
+    },
+    whatsappIcon: {
+      fontSize: '2rem',
+      color: '#ffffff',
+      transition: 'color 0.3s ease'
+    },
+    callIcon: {
+      fontSize: '1.5rem',
+      color: '#ffffff',
+      transition: 'color 0.3s ease'
+    },
+    bottomSection: {
+      textAlign: 'center',
+      marginTop: '2.5rem',
+      color: '#6b7280',
+      fontSize: '0.75rem',
+      borderTop: '1px solid #374151',
+      paddingTop: '1rem'
+    },
+    // Media queries using CSS-in-JS approach
+    '@media (max-width: 768px)': {
+      container: {
+        gridTemplateColumns: '1fr',
+        gap: '2rem',
+        padding: '1rem 0'
+      },
+      footer: {
+        padding: '2rem 1rem'
+      },
+      sectionTitle: {
+        fontSize: '1.125rem'
+      },
+      socialContainer: {
+        justifyContent: 'center'
+      },
+      supportContainer: {
+        justifyContent: 'center'
+      }
+    }
+  };
+
   return (
-    <footer className="bg-black text-white py-12 px-6">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 text-sm py-8">
+    <footer style={footerStyles.footer}>
+      <div style={footerStyles.container}>
         
         {/* Contact Info */}
-        <div className='px-10'>
-          <h2 className="text-2xl font-semibold mb-4 text-red-600 px-6">Contact Us</h2>
-          <div className="flex items-start gap-2 mb-3">
-            <FaLocationDot className="text-red-600 mt-4" />
-            <p className='mt-4'>Thandi Rd, Tallital, Nainital, Uttarakhand 263002</p>
+        <div style={footerStyles.contactSection}>
+          <h2 style={footerStyles.sectionTitle}>Contact Us</h2>
+          <div style={footerStyles.contactItem}>
+            <FaLocationDot style={footerStyles.icon} />
+            <p>Thandi Rd, Tallital, Nainital, Uttarakhand 263002</p>
           </div>
           {[
             { phone: "+917835834101" },
             { phone: "+919971855186" },
             { phone: "+918743000197" }
           ].map((item, i) => (
-            <div key={i} className="flex items-center gap-2 mb-2 space-y-4">
-              <IoIosCall className="text-red-600" />
-              <a href={`tel:${item.phone}`} className="text-gray-400 hover:text-white">
+            <div key={i} style={footerStyles.phoneItem}>
+              <IoIosCall style={footerStyles.phoneIcon} />
+              <a 
+                href={`tel:${item.phone}`} 
+                style={footerStyles.link}
+                onMouseOver={(e) => e.target.style.color = '#ffffff'}
+                onMouseOut={(e) => e.target.style.color = '#9ca3af'}
+              >
                 {item.phone}
               </a>
             </div>
           ))}
-          <div className="flex items-center gap-2">
-            <CiMail className="text-red-600" />
-            <a href="mailto:booking@rchronline.com" className="text-gray-400 hover:text-white">
+          <div style={footerStyles.phoneItem}>
+            <CiMail style={footerStyles.phoneIcon} />
+            <a 
+              href="mailto:booking@rchronline.com" 
+              style={footerStyles.link}
+              onMouseOver={(e) => e.target.style.color = '#ffffff'}
+              onMouseOut={(e) => e.target.style.color = '#9ca3af'}
+            >
               booking@rchronline.com
             </a>
           </div>
         </div>
 
         {/* Quick Links */}
-        {/* Quick Links */}
-<div>
-  <h2 className="text-2xl font-semibold mb-4 text-red-600">Quick Links</h2>
-  <div className="flex flex-col gap-2 space-y-6">
-    {[
-      "Home",
-      "About",
-      "Restaurant",
-      "Contact",
-      "Refund & Cancellation Policy",
-      "Privacy Policy"
-    ].map((link, i) => (
-      <a key={i} href="#" className="text-gray-400 hover:text-white">
-        {link}
-      </a>
-    ))}
-  </div>
-</div>
-
+        <div>
+          <h2 style={footerStyles.sectionTitle}>Quick Links</h2>
+          <div style={footerStyles.quickLinksContainer}>
+            {[
+              "Home",
+              "About", 
+              "Restaurant",
+              "Contact",
+              "Refund & Cancellation Policy",
+              "Privacy Policy"
+            ].map((link, i) => (
+              <a 
+                key={i} 
+                href="#" 
+                style={footerStyles.link}
+                onMouseOver={(e) => e.target.style.color = '#ffffff'}
+                onMouseOut={(e) => e.target.style.color = '#9ca3af'}
+              >
+                {link}
+              </a>
+            ))}
+          </div>
+        </div>
 
         {/* TripAdvisor */}
         <div>
-          <h2 className="text-2xl font-semibold mb-4 text-red-600">TripAdvisor</h2>
-          <p className="text-gray-400 mb-2">Now with hotel reviews by</p>
-          <a href="#" className="text-blue-400 hover:text-white underline">TripAdvisor</a>
+          <h2 style={footerStyles.sectionTitle}>TripAdvisor</h2>
+          <p style={{color: '#9ca3af', marginBottom: '0.5rem'}}>Now with hotel reviews by</p>
+          <a 
+            href="#" 
+            style={{...footerStyles.link, color: '#60a5fa', textDecoration: 'underline'}}
+            onMouseOver={(e) => e.target.style.color = '#ffffff'}
+            onMouseOut={(e) => e.target.style.color = '#60a5fa'}
+          >
+            TripAdvisor
+          </a>
         </div>
 
         {/* Social Icons */}
-        <div className='px-10'>
-          <h2 className="text-lg font-semibold mb-4 text-red-600">Connect with Us</h2>
-          <div className="flex gap-4 text-xl">
-            <a href="#" className="hover:text-red-600"><FaPinterest /></a>
-            <a href="#" className="hover:text-blue-600"><CiFacebook /></a>
-            <a href="#" className="hover:text-pink-500"><BsInstagram /></a>
-            <a href="#" className="hover:text-white"><FaXTwitter /></a>
+        <div>
+          <h2 style={footerStyles.sectionTitle}>Connect with Us</h2>
+          <div style={footerStyles.socialContainer}>
+            <a 
+              href="#" 
+              style={footerStyles.socialLink}
+              onMouseOver={(e) => e.target.style.color = '#dc2626'}
+              onMouseOut={(e) => e.target.style.color = '#ffffff'}
+            >
+              <FaPinterest />
+            </a>
+            <a 
+              href="#" 
+              style={footerStyles.socialLink}
+              onMouseOver={(e) => e.target.style.color = '#3b82f6'}
+              onMouseOut={(e) => e.target.style.color = '#ffffff'}
+            >
+              <CiFacebook />
+            </a>
+            <a 
+              href="#" 
+              style={footerStyles.socialLink}
+              onMouseOver={(e) => e.target.style.color = '#ec4899'}
+              onMouseOut={(e) => e.target.style.color = '#ffffff'}
+            >
+              <BsInstagram />
+            </a>
+            <a 
+              href="#" 
+              style={footerStyles.socialLink}
+              onMouseOver={(e) => e.target.style.color = '#ffffff'}
+              onMouseOut={(e) => e.target.style.color = '#ffffff'}
+            >
+              <FaXTwitter />
+            </a>
           </div>
         </div>
 
         {/* WhatsApp & Call */}
-     <div className="absolute right-20 top-0 lg:static">
-    <h2 className="text-lg font-semibold mb-4 text-red-600 mr-10">Support</h2>
-    <div className="flex gap-4 items-center mr-4">
-      <a
-        href="https://api.whatsapp.com/send?phone=917835834101&text=Hello!%20I%20have%20a%20query%20regarding%20Manu%20Maharani%20Regency."
-        className="text-3xl hover:text-green-500 mr-10"
-      >
-        <FaWhatsapp />
-      </a>
-      <a href="tel:+917835834101" className="text-xl hover:text-white mr-10">
-        <MdCall />
-      </a>
-    </div>
-  </div>
-</div>
+        <div>
+          <h2 style={footerStyles.sectionTitle}>Support</h2>
+          <div style={footerStyles.supportContainer}>
+            <a
+              href="https://api.whatsapp.com/send?phone=917835834101&text=Hello!%20I%20have%20a%20query%20regarding%20Manu%20Maharani%20Regency."
+              style={footerStyles.whatsappIcon}
+              onMouseOver={(e) => e.target.style.color = '#22c55e'}
+              onMouseOut={(e) => e.target.style.color = '#ffffff'}
+            >
+              <FaWhatsapp />
+            </a>
+            <a 
+              href="tel:+917835834101" 
+              style={footerStyles.callIcon}
+              onMouseOver={(e) => e.target.style.color = '#dc2626'}
+              onMouseOut={(e) => e.target.style.color = '#ffffff'}
+            >
+              <MdCall />
+            </a>
+          </div>
+        </div>
+      </div>
 
       {/* Footer Bottom Note */}
-      <div className="text-center mt-10 text-gray-500 text-xs border-t border-gray-700 pt-4">
+      <div style={footerStyles.bottomSection}>
         © {new Date().getFullYear()} Manu Maharani Regency. All rights reserved.
       </div>
     </footer>
