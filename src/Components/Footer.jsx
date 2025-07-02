@@ -30,7 +30,7 @@ const Footer = () => {
       fontSize: '1.25rem',
       fontWeight: '600',
       marginBottom: '1rem',
-      color: '#dc2626'
+      color: 'white'
     },
     contactSection: {
       gridColumn: 'span 1'

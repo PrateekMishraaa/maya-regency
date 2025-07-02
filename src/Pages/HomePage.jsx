@@ -171,7 +171,7 @@ const HomePage = () => {
       transform: 'translateX(-50%)',
       width: '60px',
       height: '4px',
-      background: 'linear-gradient(90deg, #667eea, #764ba2)',
+      background: 'black',
       borderRadius: '2px'
     },
 
@@ -207,7 +207,7 @@ const HomePage = () => {
     },
     button: {
       padding: '0.75rem 2rem',
-      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      background: 'black',
       color: 'white',
       border: 'none',
       borderRadius: '50px',
@@ -215,7 +215,7 @@ const HomePage = () => {
       fontSize: '1rem',
       fontWeight: '600',
       transition: 'all 0.3s ease',
-      boxShadow: '0 4px 15px rgba(102, 126, 234, 0.4)'
+      boxShadow: 'black'
     },
 
     // Accommodations
@@ -265,7 +265,7 @@ const HomePage = () => {
     accommodationPrice: {
       fontSize: '1.2rem',
       fontWeight: 'bold',
-      color: '#667eea',
+      color: 'black',
       marginBottom: '1rem'
     },
 
@@ -369,14 +369,14 @@ const HomePage = () => {
       width: '60px',
       height: '60px',
       borderRadius: '50%',
-      background: '#007bff',
+      // background: '#007bff',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       color: 'white',
       fontSize: '1.5rem',
       textDecoration: 'none',
-      boxShadow: '0 4px 12px rgba(0, 123, 255, 0.4)',
+      // boxShadow: '0 4px 12px rgba(0, 123, 255, 0.4)',
       transition: 'transform 0.3s ease'
     }
   };
@@ -666,7 +666,7 @@ const HomePage = () => {
             style={styles.phoneButton}
             className="phone-button"
           >
-            📞
+            <img src={Phone} alt="" />
           </a>
         </div>
       </div>
