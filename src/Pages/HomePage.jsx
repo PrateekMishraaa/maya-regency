@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Navbar from "../Components/Navbar.jsx"
 import Footer from "../Components/Footer.jsx"
 import Park from "../assets/park2.jpeg"
-import Phone from "../assets/phone.svg"
+import Phone from "../assets/call.svg"
 import Whatsapp from "../assets/whatsapp.svg"
-import Banner from "../assets/bannerimg.jpeg";
+import Banner from "../assets/newhome.jpeg";
 import BannerTwo from "../assets/banner2.jpeg";
 import RoomOne from "../assets/room1.jpeg";
 import RoomTwo from "../assets/room2.jpeg";
@@ -123,6 +123,7 @@ const HomePage = () => {
     },
     bannerSubtitle: {
       fontSize: '1.25rem',
+    fontWeight:'Bold',
       marginBottom: '2rem',
       opacity: 0.9,
       animation: isLoaded ? 'fadeInUp 1s ease-out 0.3s both' : 'none'
@@ -493,7 +494,7 @@ const HomePage = () => {
         {/* Banner Section */}
         <section style={styles.bannerSection}>
           <img 
-            src={Park}
+            src={Banner}
             alt="banner" 
             style={styles.bannerImage}
           />
